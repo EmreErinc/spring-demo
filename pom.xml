@@ -49,7 +49,15 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- add following dependency under dependencies section -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
 
+        <!-- appengine dependensies -->
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
