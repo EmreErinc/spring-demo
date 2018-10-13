@@ -1,9 +1,7 @@
-package controller;
+package com.spring.demo.demo;
 
-import model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import repository.CustomerRepository;
 
 import java.util.List;
 

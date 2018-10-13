@@ -1,4 +1,4 @@
-package model;
+package com.spring.demo.demo;
 
 import lombok.Getter;
 import lombok.Setter;
