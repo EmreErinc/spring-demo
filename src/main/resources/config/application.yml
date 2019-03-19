@@ -1,7 +1,5 @@
-server:
-  port: 7000
-
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27000/mongodb
+      uri: mongodb://spring:spring1@ds217976.mlab.com:17976/demo
+      authentication-database: admin

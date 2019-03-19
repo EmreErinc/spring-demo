@@ -1,9 +1,14 @@
-package com.spring.demo.demo;
+package com.spring.demo.demo.controller;
 
+import com.spring.demo.demo.model.Customer;
+import com.spring.demo.demo.model.CustomerRequest;
+import com.spring.demo.demo.repository.CustomerRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/customer")
@@ -15,23 +20,27 @@ public class CustomerController {
     this.customerRepository = customerRepository;
   }
 
-  //localhost:7000/customer/all
-  @RequestMapping(value = "/all",method = RequestMethod.GET)
+  //localhost:8080/customer/all
+  @RequestMapping(value = "/",method = RequestMethod.GET)
   public List<Customer> getAll(){
     return customerRepository.findAll();
   }
 
-  //localhost:7000/customer/<id>
+  //localhost:8080/customer/<id>
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public Customer getOne(@PathVariable Integer id){
+  public Optional<Customer> getOne(@PathVariable ObjectId id){
     return customerRepository.findById(id);
   }
 
-  //localhost:7000/customer/
+  //localhost:8080/customer/
   @RequestMapping(value = "/",method = RequestMethod.POST)
-  public boolean save (@RequestBody Customer customer){
+  public boolean save (@RequestBody CustomerRequest request){
     boolean status = false;
-    if (!customerRepository.existsByFirstName(customer.getFirstName())){
+    if (!customerRepository.existsByFirstName(request.getFirstName())){
+      Customer customer = Customer.builder()
+          .firstName(request.getFirstName())
+          .lastName(request.getLastName())
+          .build();
       customerRepository.save(customer);
       status = true;
     }
@@ -44,9 +53,9 @@ public class CustomerController {
     return customerRepository.findByFirstName(firstName);
   }
 
-  //localhost:7000/customer/orderBy/ASC
+  //localhost:8080/customer/orderBy/ASC
   //or
-  //localhost:7000/customer/orderBy/DESC
+  //localhost:8080/customer/orderBy/DESC
   @RequestMapping(value = "/orderBy/{type}", method = RequestMethod.GET)
   public List<Customer> getByOrdered(@PathVariable String type){
     if (type.equals("ASC") || type.equals("asc")){
