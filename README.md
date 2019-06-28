@@ -1,5 +1,7 @@
 # spring-demo
 
+[![Build Status](https://travis-ci.com/EmreErinc/spring-demo.svg?branch=master)](https://travis-ci.com/EmreErinc/spring-demo)
+
 this is a test repo for google cloud platform. i will try somethings that i don't know. 
 
 ## includes 
