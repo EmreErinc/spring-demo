@@ -1,11 +1,11 @@
 language: java
 jdk: openjdk8
-
 script:
-  - ./mvnw clean install -B -DskipTests
-
+- "./mvnw clean install -B -DskipTests"
 deploy:
   provider: heroku
   api_key:
-    secure: $HEROKU_API_KEY
+    secure: "$HEROKU_API_KEY"
   app: spring-demo-ci
+  apikey:
+    secure: bByXCQJIAIlH14LAZmD3rEYswI3cZqW277gXvq6yzMI0D4D/+8Osc48UoiAzJz0poEH33UI990VlaaBabQx7Phlf+UZp7mJ/JRTmQf3m/yqcSurJw2fJq9cUtu/9pWs37ag9Vci6zZfHzNjt25z5mdlfmvkwQ39Ag9976qKaSiHKZVrB7js3SdErTgSVr96Nr0lZ+x08XvQSA0lD71I22AxvCQ1UzBhncVyX3vXQjyWqbjWtRCPh9xvYOkiu+FJQy2wI7vfy/esrw/8CsjXISLKE9TMdTINMxw+R6otCRadIFyzzwgslujJC/Zq5/10G7xuMi9Vp/q18l+nEsWeUJmlLR62ZcXy/5VlrmrFLm0oWJr2LmXDT7VsjshFyNfy/AdJ1NWl2iyiu5mxapZF26uAlxX5T4q87vyBiu3fAUxeUlwB5zvdJ9gSLIhQIqn46hnVCF52WrQusd0m3apGbMDvQ8gG9BtYNbJBb8z7JDX3xwZVEtTLP8hYo6Y1fLG+5ahX/cIMuBBw4yxZqgOGWPsC8W7J536ddZI1cBjBErNAyFAmSTnOQSSBE4zAJ6+29RLslUpLvQMRt11i0C3RzGgQPRE9lOkkuF9hMrdAoJUhQ/rz/E1vyeBZiJwR0W36LWyNNmUjyjX0ygxnx2R5PSJHYgjtGkSjxp72RGboRoCM=
