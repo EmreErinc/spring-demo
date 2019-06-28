@@ -3,3 +3,6 @@ spring:
     mongodb:
       uri: mongodb://spring:spring1@ds217976.mlab.com:17976/demo
       authentication-database: admin
+
+server:
+  port: 8080
