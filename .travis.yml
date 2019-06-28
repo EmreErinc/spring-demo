@@ -9,3 +9,6 @@ deploy:
   app: spring-demo-ci
   on:
     repo: EmreErinc/spring-demo
+cache:
+  directories:
+    - $HOME/.m2
