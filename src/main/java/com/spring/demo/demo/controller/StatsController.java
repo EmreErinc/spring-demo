@@ -23,7 +23,7 @@ public class StatsController {
     this.saleRepository = saleRepository;
   }
 
-  @RequestMapping(value = "/", method = RequestMethod.GET)
+  @RequestMapping(method = RequestMethod.GET)
   public Stats getStats() {
     int customerCount = (int) customerRepository.count();
     int productCount = (int) productRepository.count();

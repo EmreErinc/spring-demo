@@ -20,7 +20,7 @@ public class ProductController {
     this.productRepository = productRepository;
   }
 
-  @RequestMapping(value = "/",method = RequestMethod.GET)
+  @RequestMapping(method = RequestMethod.GET)
   public List<Product> getAll(){
     return productRepository.findAllByOrderByIdAsc();
   }
@@ -30,7 +30,7 @@ public class ProductController {
     return productRepository.findById(id);
   }
 
-  @RequestMapping(value = "/",method = RequestMethod.POST)
+  @RequestMapping(method = RequestMethod.POST)
   public boolean save (@RequestBody ProductRequest request){
     boolean status = false;
     if (!productRepository.existsByName(request.getName())){
@@ -45,8 +45,8 @@ public class ProductController {
     return status;
   }
 
-  @RequestMapping(method = RequestMethod.GET)
-  public Product getByFirstName (@RequestParam(value = "name") String firstName){
-    return productRepository.findByName(firstName);
-  }
+  //@RequestMapping(method = RequestMethod.GET)
+  //public Product getByFirstName (@RequestParam(value = "name") String firstName){
+  //  return productRepository.findByName(firstName);
+  //}
 }

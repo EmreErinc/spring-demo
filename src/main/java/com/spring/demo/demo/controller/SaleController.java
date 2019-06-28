@@ -20,7 +20,7 @@ public class SaleController {
     this.saleRepository = saleRepository;
   }
 
-  @RequestMapping(value = "/", method = RequestMethod.POST)
+  @RequestMapping(method = RequestMethod.POST)
   public Sale saleProduct (@RequestBody SaleRequest request) {
     Sale sale = Sale.builder()
         .userId(request.getUserId())
@@ -30,7 +30,7 @@ public class SaleController {
     return saleRepository.save(sale);
   }
 
-  @RequestMapping(value = "/",method = RequestMethod.GET)
+  @RequestMapping(method = RequestMethod.GET)
   public List<Sale> getAll(){
     return saleRepository.findAll();
   }

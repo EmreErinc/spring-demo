@@ -21,7 +21,7 @@ public class CustomerController {
   }
 
   //localhost:8080/customer/all
-  @RequestMapping(value = "/",method = RequestMethod.GET)
+  @RequestMapping(method = RequestMethod.GET)
   public List<Customer> getAll(){
     return customerRepository.findAll();
   }
@@ -33,7 +33,7 @@ public class CustomerController {
   }
 
   //localhost:8080/customer/
-  @RequestMapping(value = "/",method = RequestMethod.POST)
+  @RequestMapping(method = RequestMethod.POST)
   public boolean save (@RequestBody CustomerRequest request){
     boolean status = false;
     if (!customerRepository.existsByFirstName(request.getFirstName())){
@@ -48,10 +48,10 @@ public class CustomerController {
   }
 
   //localhost:7000/customer?firstName=<name>
-  @RequestMapping(method = RequestMethod.GET)
-  public Customer getByFirstName (@RequestParam(value = "firstName") String firstName){
-    return customerRepository.findByFirstName(firstName);
-  }
+  //@RequestMapping(method = RequestMethod.GET,)
+  //public Customer getByFirstName (@RequestParam(value = "firstName") String firstName){
+  //  return customerRepository.findByFirstName(firstName);
+  //}
 
   //localhost:8080/customer/orderBy/ASC
   //or
