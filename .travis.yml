@@ -5,5 +5,5 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: "$TRAVIS_KEY"
+    secure: $TRAVIS_KEY
   app: spring-demo-ci
